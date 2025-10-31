@@ -1,0 +1,62 @@
+\subsection{%
+  Алгебраические структуры (предмет алгебры)%
+}
+\begin{definition}
+	Алгебраическая структура --- это множество,
+	с определенной на нем операциями и их свойствами.
+\end{definition}
+\begin{definition}
+	Алгебраическая группа ($G$) --- множество $G$: \underline{$+$} --- любая операция
+	\begin{enumerate}[topsep=5pt]
+		\item \(\forall a, b \in \Group \mid a + b \in \Group\) --- замкнутость
+		\item $\forall a,b,c \in \Group: a + (b + c) = (a + b) + c$ --- ассоциативность
+		\item $\exists \, \theta \, \in \Group \mid \forall a \in \Group: a + \theta = \theta + a = a$ --- наличие нейтрального элемента
+		\item $\forall a \in \Group \hspace{0.8em} \existsone \, a' \in \Group \mid a + a' = \theta$ --- наличие обратного элемента
+	\end{enumerate}
+\end{definition}
+\begin{nota}
+	Если $\oplus$, то группа --- аддитивная, $\theta$ --- ноль ($\mathbbold{0}$), а $a' = -a$\\[1mm]
+	\hspace*{7.6em} Если $\otimes$, то группа --- мультипликативная, $\theta$ --- единица ($\mathbbold{1}$), а $a' = a^{-1}$ (обратный элемент)\\[1mm]
+	\noindent\makebox[\linewidth][c]{\hspace{-8.5cm}%
+		\begin{smallimportant}{0.25\linewidth}
+		$\theta$ --- нейтральный\\
+		$a'$ --- обратный элемент
+		\end{smallimportant}
+		}
+\end{nota}
+\begin{nota}
+	Если к определению группы добавить $a \times b = b \times a$,
+	то группа называется \underline{абелевой} или \underline{коммутативной}.
+\end{nota}
+\begin{definition}
+  Кольцо это коммутативная аддитивная группа, в которой
+
+  \begin{enumerate}
+  \item
+    Определено умножение.
+
+  \item
+    Относительно этого умножения выполняется дистрибутивность\\ \(a + b \cdot c =
+    a \cdot c + b \cdot c\) и \(c \cdot (a + b) = c \cdot a + c \cdot b\) (т.к.
+    коммутативность для умножения не гарантирована).
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  Если кольцо обладает свойством коммутативности относительно умножения
+  \(\forall a, b \in \Group \mid a \cdot b = b \cdot a\), то оно называется
+  коммутативным кольцом.
+\end{definition}
+\begin{definition}
+  Поле ($\Field$) это коммутативное ассоциативное кольцо, в котором
+
+  \begin{enumerate}
+  \item
+    Есть нейтральный элемент по умножению \(\exists \theta \mid \forall a \in
+    \Field \mid a \cdot \theta = a\).
+  \item
+    Для любого ненулевого элемента существует обратный элемент по умножению
+    \(\forall a \in \Field \mid \exists a^{-1} \mid a \cdot a^{-1} =
+    \theta\).
+  \end{enumerate}
+\end{definition}

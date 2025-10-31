@@ -1,0 +1,160 @@
+% ================= ОФОРМЛЕНИЕ РАЗДЕЛОВ =================
+\sectionfont{\color{blue}}
+\subsectionfont{\color{blue}}
+\subsubsectionfont{\color{blue}}
+
+% ================= НУМЕРАЦИЯ РАЗДЕЛОВ =================
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+% ================= СТИЛИ ТЕОРЕМ =================
+\declaretheoremstyle[
+  headfont = \normalfont\bfseries,
+  notefont = \normalfont\bfseries,
+  bodyfont = \normalfont,
+  headpunct = {},
+  headformat={\NAME~\NUMBER.\NOTE},
+]{theoremstyle}
+
+\declaretheoremstyle[
+  spaceabove = 6pt,
+  spacebelow = 6pt,
+  headfont = \normalfont\itshape,
+  notefont = \normalfont,
+  bodyfont = \normalfont,
+  postheadspace = 3pt,
+]{remarkstyle}
+
+\declaretheoremstyle[
+  spaceabove = 6pt,
+  spacebelow = 6pt,
+  headfont = \normalfont\bfseries,
+  notefont = \normalfont,
+  bodyfont = \normalfont,
+  postheadspace = 3pt,
+]{definitionstyle}
+
+\declaretheoremstyle[
+  spaceabove = 6pt,
+  spacebelow = 6pt,
+  headfont = \normalfont\itshape,
+  notefont = \normalfont,
+  bodyfont = \normalfont,
+  postheadspace = 3pt,
+]{memstyle}
+
+\declaretheoremstyle[
+  spaceabove = 6pt,
+  spacebelow = 6pt,
+  headfont = \normalfont\itshape,
+  notefont = \normalfont, % ← шрифт для [1]
+  bodyfont = \normalfont,
+  headpunct = {.},         % ← точка после номера
+  postheadspace = 3pt,
+  notebraces = {}{}, % ← без скобок, просто "Пример 1."
+]{example}
+
+% ================= СРЕДЫ =================
+% Примеры — отдельная нумерация по секции
+\declaretheorem[
+  numbered = no,        % ← отключаем нумерацию
+  title = \uline{Пример}, % ← просто слово "Пример"
+  style = example
+]{example}
+
+\declaretheorem[
+  numbered = no,        % ← отключаем нумерацию
+  title = \uline{Понятие}, % ← просто слово "Пример"
+  style = example
+]{concept}
+
+% Определения — отдельная нумерация по подразделу
+\declaretheorem[
+  title = Def,
+  within = subsection,
+  style = definitionstyle
+]{definition}
+
+% Теоремы — отдельная нумерация по подразделу
+\declaretheorem[
+  title = \uline{Теорема},
+  within = subsection,
+  style = theoremstyle
+]{theorem}
+
+% Замечания — отдельная нумерация по подразделу
+\declaretheorem[
+  title = \uline{Замечание},
+  within = subsection,
+  style = remarkstyle
+]{nota}
+
+% Следствия — отдельная нумерация по подразделу
+\declaretheorem[
+  title = Следствие,
+  within = subsection,
+  style = remarkstyle
+]{corollary}
+
+% Напоминания — отдельная нумерация по подразделу
+\declaretheorem[
+  title = \uline{Напоминание},
+  within = subsection,
+  style = memstyle
+]{mem}
+
+% Леммы — отдельная нумерация по подразделу
+\declaretheorem[
+  title = \underline{Lm},
+  within = subsection,
+  style = definitionstyle
+]{lemma}
+
+% ================= ФОРМАТ НУМЕРАЦИИ =================
+% Примеры — простой счётчик
+\renewcommand{\theexample}{\arabic{example}}
+
+% Остальные — секция.подсекция.номер
+\renewcommand{\thetheorem}{\thesubsection.\arabic{theorem}}
+\renewcommand{\thenota}{\thesubsection.\arabic{nota}}
+\renewcommand{\thedefinition}{\thesubsection.\arabic{definition}}
+\renewcommand{\thelemma}{\thesubsection.\arabic{lemma}}
+\renewcommand{\thecorollary}{\thesubsection.\arabic{corollary}}
+\renewcommand{\themem}{\thesubsection.\arabic{mem}}
+
+
+% ================= ДРУГОЕ =================
+\addto\captionsrussian{\renewcommand{\proofname}{\(\square\)\nopunct}}
+\renewcommand{\qedsymbol}{\(\blacksquare\)}
+
+\addto\captionsrussian{\renewcommand{\figurename}{Рис.}}
+\renewcommand{\thefigure}{\thesection.\thesubsection.\arabic{figure}}
+
+\newcommand{\subheader}[1]{\textbf{#1} \medskip}
+\newcommand{\subsubheader}[2]{\medskip \textbf{#1} \vspace{6pt} #2 \smallskip}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{\thepage/\pageref*{LastPage}}
+\fancypagestyle{mainpage}{
+  \fancyfoot{}
+  \fancyfoot[C]{\url{\githublink}}
+}
+\renewcommand{\headrulewidth}{0pt}
+
+\setlist[enumerate]{ topsep = 0pt }
+
+\lstset{
+  basicstyle = \small\ttfamily,
+  tabsize = 2,
+  showstringspaces = false,
+  numbers = left,
+  commentstyle = \color{green},
+  morecomment = [l][\color{magenta}]{\#},
+  keywordstyle = \color{blue},
+  language = C++,
+  stringstyle = \color{red}\ttfamily,
+  breaklines = true
+}
